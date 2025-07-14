@@ -10,6 +10,7 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 from src.components.data_transformation_com import DataTransformation
 from src.components.data_transformation_com import DataTranformationConfig
+from src.components.model_trainer import initiate_model_trainer
 # In data ingestion there is going to be the input like where i am going to save the train data where we are going to save the raw data etc etc
 
 @dataclass
@@ -53,7 +54,11 @@ if __name__=="__main__":
     obj=DataIngestion()
     train_data,test_data=obj.initiate_data_ingestion()
     obj2=DataTransformation()
-    obj2.initiate_data_transformation(train_data,test_data)                
+    x_train,y_train,_=obj2.initiate_data_transformation(train_data,test_data)
+    modeltrainer=initiate_model_trainer()
+    print(modeltrainer.initiate_model_training(x_train,y_train))
+    
+
 
 
 
