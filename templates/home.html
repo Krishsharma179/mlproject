@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Educational Data Collection</title>
+</head>
+<body>
+    <h1>Educational Data Collection</h1>
+
+    <form action="/predict" method="post">
+        <label for="name">Name *</label><br />
+        <input type="text" id="name" name="name" required placeholder="Enter your full name" /><br /><br />
+
+        <label for="gender">Gender *</label><br />
+        <select id="gender" name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            
+        </select><br /><br />
+
+        <label for="race_ethnicity">Race/Ethnicity *</label><br />
+        <select id="race_ethnicity" name="race_ethnicity" required>
+            <option value="">Select Race/Ethnicity</option>
+            <option value="group A">Group A</option>
+            <option value="group B">Group B</option>
+            <option value="group C">Group C</option>
+            <option value="group D">Group D</option>
+            <option value="group E">Group E</option>
+        </select><br /><br />
+
+        <label for="parental_level_of_education">Parental Level of Education *</label><br />
+        <select id="parental_level_of_education" name="parental_level_of_education" required>
+            <option value="">Select Parental Education Level</option>
+            <option value="some high school">Some High School</option>
+            <option value="high school">High School</option>
+            <option value="some college">Some College</option>
+            <option value="associates degree">Associate's Degree</option>
+            <option value="bachelors degree">Bachelor's Degree</option>
+            <option value="masters degree">Master's Degree</option>
+        </select><br /><br />
+
+        <label for="lunch">Lunch *</label><br />
+        <select id="lunch" name="lunch" required>
+            <option value="">Select Lunch Type</option>
+            <option value="standard">Standard</option>
+            <option value="free-reduced">Free/Reduced</option>
+        </select><br /><br />
+
+        <label for="test_preparation_course">Test Preparation Course *</label><br />
+        <select id="test_preparation_course" name="test_preparation_course" required>
+            <option value="">Select Option</option>
+            <option value="none">None</option>
+            <option value="completed">Completed</option>
+        </select><br /><br />
+
+        <label for="average">Average Score *</label><br />
+        <input type="number" id="average" name="average" min="0" max="100" step="0.1" required placeholder="Enter average score" /><br /><br />
+
+        <button type="submit">Submit Data</button>
+    </form>
+
+    {% if result %}
+        <h2>Result: {{ result }}</h2>
+    {% endif %}
+</body>
+</html>

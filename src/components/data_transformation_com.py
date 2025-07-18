@@ -67,7 +67,7 @@ class DataTransformation:
 
                   preprocessor_obj=self.data_transforamtion()
 
-                  target='score'
+                  target='score'                                            #added ['score'] was facing error
                   numerical_feature=['score','average']
 
                   df_independent_train=train_df.drop(target,axis=1)
@@ -81,11 +81,11 @@ class DataTransformation:
                   df_independent_train_arr=preprocessor_obj.fit_transform(df_independent_train)
                   df_independent_test_arr=preprocessor_obj.transform(df_independent_test)
 
-                  train_arr=np.c_[df_independent_train_arr,np.array(df_dependent_train)]
+                  train_arr=np.c_[df_independent_train_arr,np.array(df_dependent_train)]    #used () instead of this []
                   test_arr=np.c_[(df_independent_test_arr,np.array(df_dependent_test))]
 
                   save_object(
-                  file_path=self.data_transformation_config.preprocessor_file_path,
+                  file_path=self.data_transformation_config.preprocessor_file_path,   # wrong  in the save_object function 
                   obj=preprocessor_obj
                    )
 
